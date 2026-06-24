@@ -13,3 +13,12 @@
 - [Incident 01 - CrashLoopBackOff](./incidents/01-crashloopbackoff.md)
 - [Incident 02 - Ingress 503 due to Service selector mismatch](./incidents/02-ingress-service-selector-mismatch.md)
 - [Incident 03 - HPA CPU Scaling](./incidents/03-hpa-cpu-scaling.md)
+
+
+## 3. Monitoring Setup
+
+- `kube-prometheus-stack` Helm chart를 사용하여 Prometheus/Grafana 기반 모니터링 환경 구성
+- `monitoring` namespace에 Prometheus, Grafana, Alertmanager, kube-state-metrics, node-exporter 설치
+- `kubectl port-forward`를 통해 로컬 브라우저에서 Grafana 대시보드 접근 확인
+- Grafana에서 `sre-lab` namespace의 Pod CPU/Memory 사용량 및 Node 리소스 상태 확인
+- HPA 부하 테스트 시 CPU 사용량 증가와 Pod replica 증가 흐름을 Grafana Dashboard에서 확인
