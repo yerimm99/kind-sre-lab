@@ -12,3 +12,4 @@
 
 - [Incident 01 - CrashLoopBackOff](./incidents/01-crashloopbackoff.md)
 - [Incident 02 - Ingress 503 due to Service selector mismatch](./incidents/02-ingress-service-selector-mismatch.md)
+- [Incident 03 - HPA CPU Scaling](./incidents/03-hpa-cpu-scaling.md)
