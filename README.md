@@ -58,6 +58,14 @@ kind 기반 로컬 Kubernetes 환경에서 애플리케이션 배포, 장애 시
 - Terraform fmt, init, validate 검증
 - 코드 변경사항이 배포/운영 리소스에 반영되기 전 기본적인 품질 검사를 자동화
 
+## 8. Alert Rule with Prometheus
+
+- PrometheusRule을 사용하여 `sre-lab` namespace의 Pod restart 감지 Alert 구성
+- `kube_pod_container_status_restarts_total` metric을 기반으로 5분 내 container restart 발생 여부 감지
+- 테스트용 CrashLoopBackOff Pod를 생성하여 Alert Pending/Firing 상태 확인
+- Prometheus UI에서 Alert Rule이 정상 등록되고 동작하는지 확인
+  
+
 ## What I Learned
 
 - Kubernetes 애플리케이션 배포와 Ingress 라우팅 흐름을 구성했다.
