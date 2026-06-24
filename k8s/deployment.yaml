@@ -4,7 +4,7 @@ metadata:
   name: sre-lab-api
   namespace: sre-lab
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: sre-lab-api
