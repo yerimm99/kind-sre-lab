@@ -7,3 +7,7 @@
 - Ingress NGINX Controller 설치
 - FastAPI 테스트 애플리케이션 Docker 이미지 빌드 및 kind 클러스터에 로드
 - Deployment, Service, Ingress 리소스를 통해 `sre-lab.local:8080`으로 애플리케이션 접근 확인
+
+## 2. Incident Scenarios
+
+- [Incident 01 - CrashLoopBackOff](./incidents/01-crashloopbackoff.md)
