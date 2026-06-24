@@ -29,3 +29,19 @@
 - GitHub `main` 브랜치의 `k8s/` 디렉터리를 배포 소스로 설정
 - ArgoCD automated sync를 사용하여 Git 변경사항이 Kubernetes 클러스터에 자동 반영되도록 구성
 - Deployment replica 변경 테스트를 통해 Git commit/push 이후 ArgoCD가 애플리케이션 상태를 동기화하는 흐름 확인
+
+## 5. Kubernetes Baseline with Terraform
+
+- Terraform Kubernetes provider를 사용하여 Kubernetes baseline 리소스 관리
+- `sre-lab` namespace의 ConfigMap, ResourceQuota, LimitRange를 Terraform 코드로 구성
+- `terraform init`, `plan`, `apply`를 통해 kind 클러스터에 baseline 리소스 적용
+- ResourceQuota와 LimitRange를 통해 namespace 단위 리소스 사용량과 기본 컨테이너 request/limit 설정 관리
+- 이후 Atlantis를 붙여 Terraform 변경사항을 PR 기반으로 plan/apply하는 흐름으로 확장 예정
+
+## 6. Terraform PR Automation with Atlantis
+
+- Atlantis를 사용하여 Terraform 변경사항을 Pull Request 기반으로 검토하는 흐름 구성
+- GitHub Webhook과 ngrok을 통해 로컬 Atlantis 서버가 PR 이벤트를 수신하도록 구성
+- `atlantis.yaml`을 통해 `terraform/k8s-baseline` 디렉터리를 Atlantis project로 등록
+- Pull Request 생성 시 Atlantis가 Terraform plan을 실행하고 결과를 PR comment로 출력하는지 확인
+- `No changes` 결과를 통해 Terraform 코드와 실제 Kubernetes 리소스 상태가 일치함을 확인
