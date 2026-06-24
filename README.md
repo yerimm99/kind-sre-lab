@@ -1,5 +1,9 @@
 # kind-sre-lab
 
+kind 기반 로컬 Kubernetes 환경에서 애플리케이션 배포, 장애 시나리오 분석, HPA 오토스케일링, Prometheus/Grafana 모니터링, ArgoCD GitOps 배포, Terraform 기반 리소스 관리, Atlantis PR 자동화, GitHub Actions CI를 실습한 SRE Lab 프로젝트입니다.
+
+단순히 애플리케이션을 배포하는 것에 그치지 않고, 운영 환경에서 발생할 수 있는 장애 상황을 직접 재현하고 `kubectl describe`, logs, events, metrics를 기반으로 원인을 분석하는 흐름을 정리했습니다.
+
 ## 1. Local Kubernetes Cluster Setup
 
 - Docker Desktop 기반 로컬 컨테이너 환경 구성
@@ -22,7 +26,7 @@
 - Grafana에서 `sre-lab` namespace의 Pod CPU/Memory 사용량 및 Node 리소스 상태 확인
 - HPA 부하 테스트 시 CPU 사용량 증가와 Pod replica 증가 흐름을 Grafana Dashboard에서 확인
 
- ## 4. GitOps Deployment with ArgoCD
+## 4. GitOps Deployment with ArgoCD
 
 - ArgoCD를 설치하여 GitHub repository 기반 GitOps 배포 환경 구성
 - `argocd/application.yaml`을 통해 `k8s/` manifest를 ArgoCD Application으로 등록
@@ -36,7 +40,7 @@
 - `sre-lab` namespace의 ConfigMap, ResourceQuota, LimitRange를 Terraform 코드로 구성
 - `terraform init`, `plan`, `apply`를 통해 kind 클러스터에 baseline 리소스 적용
 - ResourceQuota와 LimitRange를 통해 namespace 단위 리소스 사용량과 기본 컨테이너 request/limit 설정 관리
-- 이후 Atlantis를 붙여 Terraform 변경사항을 PR 기반으로 plan/apply하는 흐름으로 확장 예정
+- 애플리케이션 배포 리소스는 ArgoCD로 관리하고, namespace 운영 기준 리소스는 Terraform으로 분리 관리
 
 ## 6. Terraform PR Automation with Atlantis
 
@@ -53,8 +57,6 @@
 - Kubernetes manifest YAML 문법 검증
 - Terraform fmt, init, validate 검증
 - 코드 변경사항이 배포/운영 리소스에 반영되기 전 기본적인 품질 검사를 자동화
-
-
 
 ## What I Learned
 
