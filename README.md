@@ -53,3 +53,15 @@
 - Kubernetes manifest YAML 문법 검증
 - Terraform fmt, init, validate 검증
 - 코드 변경사항이 배포/운영 리소스에 반영되기 전 기본적인 품질 검사를 자동화
+
+
+
+## What I Learned
+
+- Kubernetes 애플리케이션 배포와 Ingress 라우팅 흐름을 구성했다.
+- CrashLoopBackOff, Ingress 503, HPA Scaling 상황을 직접 재현하고 원인을 분석했다.
+- Prometheus/Grafana를 통해 Pod, Node, HPA 지표를 관측했다.
+- ArgoCD를 사용하여 Git 기반 배포 흐름을 구성했다.
+- Terraform으로 Kubernetes baseline 리소스를 코드로 관리했다.
+- Atlantis를 통해 Terraform 변경사항을 Pull Request에서 plan으로 검토하는 흐름을 구성했다.
+- GitHub Actions를 사용하여 Docker build, Kubernetes manifest, Terraform 코드 검증을 자동화했다.
