@@ -45,3 +45,11 @@
 - `atlantis.yaml`을 통해 `terraform/k8s-baseline` 디렉터리를 Atlantis project로 등록
 - Pull Request 생성 시 Atlantis가 Terraform plan을 실행하고 결과를 PR comment로 출력하는지 확인
 - `No changes` 결과를 통해 Terraform 코드와 실제 Kubernetes 리소스 상태가 일치함을 확인
+
+## 7. CI Pipeline with GitHub Actions
+
+- GitHub Actions를 사용하여 Pull Request 및 main 브랜치 push 시 CI 검증 수행
+- FastAPI 애플리케이션 Docker image build 검증
+- Kubernetes manifest YAML 문법 검증
+- Terraform fmt, init, validate 검증
+- 코드 변경사항이 배포/운영 리소스에 반영되기 전 기본적인 품질 검사를 자동화
