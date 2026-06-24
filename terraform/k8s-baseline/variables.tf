@@ -13,5 +13,5 @@ variable "app_env" {
 variable "log_level" {
   description = "Application log level"
   type        = string
-  default     = "info"
+  default     = "debug"
 }
